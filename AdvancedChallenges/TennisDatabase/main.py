@@ -1,6 +1,5 @@
 #Libarys
 import sqlite3
-from secrets import token_urlsafe
 from time import sleep
 
 conn = sqlite3.connect("database.db")
