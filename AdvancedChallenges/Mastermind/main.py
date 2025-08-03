@@ -7,18 +7,17 @@ from time import sleep
 currentGuess: int = 0
 
 #Functions
-def generate_numbers(amount: int) -> int:
+def generate_numbers(amount: int) -> str:
     generatedNumber: str = ""
-    for i in range(amount):
-        generatedNumber += str(random.randrange(0,9))
+    for _ in range(amount):
+        generatedNumber += str(random.randrange(0, 10))
     return generatedNumber
 
-def make_guess(guess: str) -> str:
+def make_guess(guess: str) -> int:
     guessCount = 0
-    for letter in guess:
-        if letter in Numbers:
-            if guess[guess.index(letter)] == Numbers[guess.index(letter)]:
-                guessCount += 1
+    for guessed_digit, actual_digit in zip(guess, Numbers):
+        if guessed_digit == actual_digit:
+            guessCount += 1
     print(f"{guessCount} numbers are correct!")
     return 1
     
